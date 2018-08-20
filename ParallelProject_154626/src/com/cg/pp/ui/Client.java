@@ -77,7 +77,7 @@ public class Client {
 					float amount = sc.nextFloat();
 					wser.depositAmount(mobileno3, amount);
 					History hist3 = new History(mobileno3, choice, amount);
-					wser.addToHistory(mobileno3, hist3);
+					wser.addToHistory(hist3);
 					}
 			} catch (Exception e3){
 				System.err.println(e3.getMessage());
@@ -99,7 +99,7 @@ public class Client {
 					if(wser.validateAmount(amount, cust)) {
 						wser.withdrawAmount(mobileno4, amount);
 						History hist4 = new History(mobileno4, choice, amount);
-						wser.addToHistory(mobileno4, hist4);
+						wser.addToHistory(hist4);
 					}
 					}
 			} catch (Exception e4){
@@ -122,9 +122,9 @@ public class Client {
 			   && wser.validateAmount(amount, custfrom) && wser.validateTransfer(acfrom, acto)){
 						wser.fundTransfer(acfrom, acto, amount);
 						History hist5 = new History(acfrom, choice, amount);
-						wser.addToHistory(acfrom, hist5);
+						wser.addToHistory(hist5);
 						History hist6 = new History(acto, choice, amount);
-						wser.addToHistory(acto, hist6);
+						wser.addToHistory(hist6);
 				}
 			} catch (Exception e5){
 				System.err.println(e5.getMessage());
@@ -137,7 +137,7 @@ public class Client {
 			System.out.println("Enter Mobile Number: ");
 			String mobileno6 = sc.next();
 			if(wser.findOne(mobileno6)) {
-		//		wser.showHistory(hist7);
+				wser.showHistory(mobileno6);
 			}
 			System.out.println("Press 1 to exit or 0 to reuse!");
 			cont = sc.nextInt();

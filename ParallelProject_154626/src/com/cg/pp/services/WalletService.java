@@ -15,6 +15,6 @@ public interface WalletService {
 	public boolean validateTransfer(String acfrom, String acto) throws InputException;
 	public Customer findAccount(String mobileno);
 	public boolean findOne(String mobileNo);
-	public History addToHistory(String index, History history);
+	public History addToHistory(History history);
 	public History showHistory(String mobileno);
 }

@@ -14,6 +14,13 @@ public class History {
 		this.operation = operation;
 		this.histamount = histamount;				
 	}
+	
+	@Override
+	public String toString() {
+		return "\n" + "Number=" + histmobileno + ", Operation Number=" + operation
+				 + ", Transaction Amount= " + histamount;
+	}
+	
 	public int getSerial() {
 		return serial;
 	}

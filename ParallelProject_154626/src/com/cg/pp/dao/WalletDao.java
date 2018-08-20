@@ -11,6 +11,6 @@ public interface WalletDao {
 	public Customer withdrawAmount(String mobileNo, float amount);
 	public boolean findOne(String mobileNo);
 	public Customer findAccount(String mobileno);
-//	public History addToHistory(String index, History history);
-//	public History showHistory(String mobileno);
+	public History addToHistory(History history);
+	public History showHistory(String mobileno);
 }

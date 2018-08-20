@@ -1,30 +1,39 @@
 package com.cg.pp.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import com.cg.pp.beans.Customer;
 import com.cg.pp.beans.History;
 
 public class WalletDaoImpl implements WalletDao{
 	HashMap<String, Customer> database = new HashMap<>(); 
-	HashMap<String, History> historydb = new HashMap<>();
- 	
+	ArrayList<History> historydb = new ArrayList<History>();
+	
+	@Override
+	public History addToHistory(History history) {
+	    historydb.add(history);
+	    return null;
+	}
+
+	@Override
+	public History showHistory(String mobileno) {
+		ArrayList<History> sHistory = new ArrayList<History>();
+		for (History history : historydb) {
+		    if ((history.getHistmobileno()).matches(mobileno)) {
+		        sHistory.add(history);
+		    }
+		}
+		System.out.println("Operation 3 - Deposit");
+		System.out.println("Operation 4 - Withdrawal");
+		System.out.println("Operation 5 - Fund Transfer");
+        System.out.println(sHistory);
+		return null;
+	}
+	
 	public boolean findOne(String mobileNo){
 		return database.containsKey(mobileNo);
 		}
 
-	//@Override
-	//public History addToHistory(String index, History history) {
-	//	String index1 = history.getHistmobileno() + "-" + "history.getSerial()";
-	//	historydb.put(index1, history);
-	//	return historydb.get(index1);	
-	//	}
-	
-//	@Override
-	//public History showHistory(String mobileno) {
-		//String index1 = history.getHistmobileno() + history.getSerial();
-		//return historydb.get(index1);
-//	}
-	
 	@Override
 	public Customer createAccount(Customer customer) {
 		database.put(customer.getMobileNo(), customer);
@@ -63,8 +72,8 @@ public class WalletDaoImpl implements WalletDao{
 		String name = ((Customer)database.get(mobileNo)).getName();
 		String mobileno = ((Customer)database.get(mobileNo)).getMobileNo();
 		database.put(mobileno, new Customer(mobileno, name, newbal));
-		System.out.println("Account recharged succesfully for " 
-				+ amount + " The available balance is " 
+		System.out.println("Amount " 
+				+ amount + " withdrawn succesfully!" + " The available balance is " 
 				+ newbal );		
 		return null;
 	}

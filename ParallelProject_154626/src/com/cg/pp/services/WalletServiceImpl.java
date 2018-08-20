@@ -8,8 +8,8 @@ import com.cg.pp.dao.WalletDaoImpl;
 public class WalletServiceImpl implements WalletService{
 	WalletDao dao = new WalletDaoImpl();
 	
-	public History addToHistory(String index, History history) {
-		return dao.addToHistory(index, history);
+	public History addToHistory(History history) {
+		return dao.addToHistory(history);
 	}
 	
 	public History showHistory(String mobileno) {

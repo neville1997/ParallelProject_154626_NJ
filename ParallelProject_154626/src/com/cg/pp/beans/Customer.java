@@ -30,9 +30,10 @@ public class Customer {
 	public void setBalance(float balance) {
 		this.balance = balance;
 	}
+	
 	@Override
 	public String toString() {
-		return "Customer name=" + name + ", Mobile Num=" + mobileNo
+		return "\n" + "Customer name=" + name + ", Mobile Num=" + mobileNo
 				 + ", Balance= " + balance ;
 	}
 	
